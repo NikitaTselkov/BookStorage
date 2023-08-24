@@ -155,13 +155,13 @@
 
     <!--#region ComboBox Brushes -->
     <SolidColorBrush x:Key="ComboBox.Static.Background"
-                     Color="#FFFFFF" />
+                     Color="#4683DE" />
 
     <SolidColorBrush x:Key="ComboBox.Static.Border"
                      Color="#ECECEC" />
 
     <SolidColorBrush x:Key="ComboBox.Static.Foreground"
-                     Color="#000000" />
+                     Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="ComboBox.Static.Glyph"
                      Color="#ECECEC" />
@@ -170,7 +170,7 @@
                      Color="#CECECE" />
 
     <SolidColorBrush x:Key="ComboBox.MouseOver.Background"
-                     Color="#FFFFFF" />
+                     Color="#4683DE" />
 
     <SolidColorBrush x:Key="ComboBox.MouseOver.Border"
                      Color="#CECECE" />
@@ -188,13 +188,13 @@
                      Color="#CECECE" />
 
     <SolidColorBrush x:Key="ComboBoxItem.Static.Background"
-                     Color="#FFFFFF" />
+                     Color="#F7F7F7" />
 
     <SolidColorBrush x:Key="ComboBoxItem.MouseOver.Background"
                      Color="#ECECEC" />
 
     <SolidColorBrush x:Key="Popup.Static.Background"
-                     Color="#FFFFFF" />
+                     Color="#F7F7F7" />
 
 
     <Color x:Key="Popup.Static.Shadow.Color">
@@ -252,4 +252,6 @@
     <SolidColorBrush x:Key="Button.ClearAll.Static.Background"
                      Color="#D4AA4B" />
     <!--#endregion-->
+
+    <SolidColorBrush x:Key="TextBox.Static.Background" Color="#4683DE"/>
 </ResourceDictionary>

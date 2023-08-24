@@ -1,7 +1,5 @@
 ﻿using BookStorage.Enums;
 using BookStorage.Models;
-using Prism.Commands;
-using Prism.Mvvm;
 using System.Collections.ObjectModel;
 
 namespace BookStorage.ViewModels

@@ -5,6 +5,21 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525" >
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        
+        <DataGrid
+            ItemsSource="{Binding Books}" 
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            Margin="10">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="150" Width="*" Header="" Binding="{Binding Author}" />
+                <DataGridTextColumn MinWidth="150" Width="*" Header="Название" Binding="{Binding Title}" />
+                <DataGridTextColumn MinWidth="90" Width="*" Header="Тема" Binding="{Binding Theme}" />
+                <DataGridTextColumn MinWidth="50" Width="*" Header="Год" Binding="{Binding YearOfPublishing}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
     </Grid>
 </Window>

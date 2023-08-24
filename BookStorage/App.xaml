@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:BookStorage"
              xmlns:prism="http://prismlibrary.com/" >
     <Application.Resources>
-         
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/Views/Dictionares/Icons.xaml" />
+                <ResourceDictionary Source="/Views/Dictionares/LightTheme.xaml" />
+                <ResourceDictionary Source="/Views/Dictionares/DataGrid.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

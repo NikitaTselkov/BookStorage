@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
+using BookStorage.Models;
+using System.Globalization;
+using BookStorage.Enums;
 
 namespace BookStorage.ViewModels
 {
@@ -51,6 +54,11 @@ namespace BookStorage.ViewModels
 
                 return null;
             }
+        }
+
+        internal static void SetLanguage(Languages language)
+        {
+            TranslationSource.Instance.CurrentCulture = new CultureInfo(language.ToString());
         }
 
         internal bool IsAllValid()

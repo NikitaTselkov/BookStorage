@@ -1,25 +1,41 @@
 ﻿<Window x:Class="BookStorage.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ex="clr-namespace:BookStorage.Views.Extensions"
+        xmlns:enums="clr-namespace:BookStorage.Enums"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525" >
+        Title="{Binding Title}" Height="350" Width="525">
+
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
         
         <DataGrid
+            Grid.Row="1"
             ItemsSource="{Binding Books}" 
             AutoGenerateColumns="False"
             IsReadOnly="True"
             Margin="10">
 
             <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="150" Width="*" Header="" Binding="{Binding Author}" />
-                <DataGridTextColumn MinWidth="150" Width="*" Header="Название" Binding="{Binding Title}" />
-                <DataGridTextColumn MinWidth="90" Width="*" Header="Тема" Binding="{Binding Theme}" />
-                <DataGridTextColumn MinWidth="50" Width="*" Header="Год" Binding="{Binding YearOfPublishing}" />
+                <DataGridTextColumn MinWidth="150" Width="*" Header="{ex:Localization Author}" Binding="{Binding Author}" />
+                <DataGridTextColumn MinWidth="150" Width="*" Header="{ex:Localization Title}" Binding="{Binding Title}" />
+                <DataGridTextColumn MinWidth="90" Width="*" Header="{ex:Localization Theme}" Binding="{Binding Theme}" />
+                <DataGridTextColumn MinWidth="50" Width="*" Header="{ex:Localization YearOfPublishing}" Binding="{Binding YearOfPublishing}" />
             </DataGrid.Columns>
 
         </DataGrid>
 
+        <ComboBox
+            SelectedValue="{Binding CurrentLanguage}"
+            IsReadOnly="True"
+            ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type enums:Languages}}}">
+            
+        </ComboBox>
+        
     </Grid>
 </Window>

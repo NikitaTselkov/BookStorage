@@ -105,7 +105,7 @@
                      Color="#000000" />
 
     <SolidColorBrush x:Key="DataGrid.Cell.Selected.Foreground"
-                     Color="#FFFFFF" />
+                     Color="#4683DE" />
 
     <SolidColorBrush x:Key="DataGrid.Cell.Static.CompletedBrush"
                      Color="#18BD11" />

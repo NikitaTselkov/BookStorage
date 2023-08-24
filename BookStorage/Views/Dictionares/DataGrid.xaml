@@ -34,7 +34,7 @@
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource DataGrid.Grid.HorizontalLineBrush}"/>
         <Setter Property="HeadersVisibility" Value="Column"/>
-        <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+        <Setter Property="RowDetailsVisibilityMode" Value="Collapsed"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
         <Setter Property="SelectionMode" Value="Single"/>
         <Setter Property="SelectionUnit" Value="FullRow" />
@@ -105,6 +105,7 @@
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{DynamicResource DataGrid.Column.Header.Background}"/>
         <Setter Property="Foreground" Value="{DynamicResource DataGrid.Column.Header.Static.Foreground}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="Padding" Value="5 0"/>
@@ -117,7 +118,8 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}">
+                            Padding="{TemplateBinding Padding}"
+                            CornerRadius="5 5 0 0">
 
                             <Grid Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
@@ -173,6 +175,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
                     <Border
+                        CornerRadius="0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}">
 
@@ -182,6 +185,13 @@
                             Margin="{TemplateBinding Padding}"/>
 
                     </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

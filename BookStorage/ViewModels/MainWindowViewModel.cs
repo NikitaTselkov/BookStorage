@@ -1,4 +1,5 @@
 ﻿using Core.Enums;
+using DataBaseAccess.Repository;
 using Models;
 using System.Collections.ObjectModel;
 
@@ -13,7 +14,7 @@ namespace BookStorage.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private Languages _currentLanguage;
+        private Languages _currentLanguage;      
         public Languages CurrentLanguage
         {
             get { return _currentLanguage; }
@@ -26,28 +27,32 @@ namespace BookStorage.ViewModels
 
         public ObservableCollection<Book> Books { get; set; }
 
-        public MainWindowViewModel()
+        private readonly IBookRepository _bookRepository;
+
+        public MainWindowViewModel(IBookRepository bookRepository)
         {
-            Books = new ObservableCollection<Book>()
-            {
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
-                new Book("Федор Достоевский", "Преступление и наказание", BookThemes.ScienceFiction, -1)
-            };
+            _bookRepository = bookRepository;
+
+            Books = new ObservableCollection<Book>(_bookRepository.GetAll());
+            //{
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Лев Толстой", "Война и мир", BookThemes.History, 1869),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.Crime, 1866),
+            //    new Book("Федор Достоевский", "Преступление и наказание", BookThemes.ScienceFiction, -1)
+            //};
 
             SetLanguage(Languages.en);
         }

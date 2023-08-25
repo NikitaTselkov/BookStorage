@@ -5,8 +5,16 @@ namespace DataBaseAccess
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public ApplicationDbContext()
+        {
+            Database.EnsureCreated();
+        }
 
         public DbSet<Book> Books { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=BookStorage.db");
+        }
     }
 }

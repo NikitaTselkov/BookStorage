@@ -5,6 +5,9 @@ namespace Models
 {
     public class Book
     {
+        [Key]
+        public int Id { get; init; }
+
         [RegularExpression(@"^[\p{L}]+\s[\p{L}]+$")]
         public string Author { get; init; }
         public string Title { get; init; }

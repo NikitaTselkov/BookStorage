@@ -1,4 +1,5 @@
 ﻿using BookStorage.Views;
+using DataBaseAccess.Repository;
 using Prism.Ioc;
 using System.Windows;
 
@@ -16,7 +17,7 @@ namespace BookStorage
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterSingleton<IBookRepository, BookRepository>();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStorage.Models
+namespace Models
 {
     public enum BookThemes
     {

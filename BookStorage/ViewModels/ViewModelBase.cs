@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using BookStorage.Models;
 using System.Globalization;
-using BookStorage.Enums;
+using Core.Enums;
 
 namespace BookStorage.ViewModels
 {

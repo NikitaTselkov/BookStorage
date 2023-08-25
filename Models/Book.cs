@@ -1,11 +1,11 @@
-﻿using BookStorage.ValidationAttributes;
-using System.Configuration;
+﻿using Models.ValidationAttributes;
+using System.ComponentModel.DataAnnotations;
 
-namespace BookStorage.Models
+namespace Models
 {
     public class Book
     {
-        [RegexStringValidator(@"^[\p{L}]+\s[\p{L}]+$")]
+        [RegularExpression(@"^[\p{L}]+\s[\p{L}]+$")]
         public string Author { get; init; }
         public string Title { get; init; }
         public BookThemes Theme { get; init; }

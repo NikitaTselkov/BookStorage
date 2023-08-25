@@ -1,5 +1,5 @@
-﻿using BookStorage.Enums;
-using BookStorage.Models;
+﻿using Core.Enums;
+using Models;
 using System.Collections.ObjectModel;
 
 namespace BookStorage.ViewModels

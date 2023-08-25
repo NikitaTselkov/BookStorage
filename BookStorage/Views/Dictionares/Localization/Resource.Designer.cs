@@ -61,6 +61,24 @@ namespace BookStorage.Views.Dictionares.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add book.
+        /// </summary>
+        public static string AddBook {
+            get {
+                return ResourceManager.GetString("AddBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Author.
         /// </summary>
         public static string Author {
@@ -75,6 +93,42 @@ namespace BookStorage.Views.Dictionares.Localization {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit book.
+        /// </summary>
+        public static string EditBook {
+            get {
+                return ResourceManager.GetString("EditBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter book details.
+        /// </summary>
+        public static string EnterBookDetails {
+            get {
+                return ResourceManager.GetString("EnterBookDetails", resourceCulture);
             }
         }
         

@@ -2,19 +2,41 @@
 using Models;
 using Models.ValidationAttributes;
 using Prism.Services.Dialogs;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace BookStorage.ViewModels.Dialogs
 {
     public class UpsertDialogViewModel : DialogViewModelBase
     {
         private string _author;
+        /// <summary>
+        /// Проверяет формат ФИО:
+        /// Иванов Иван Иванович
+        /// Иванов Иван И.
+        /// Иванов И.И.
+        /// </summary>
+        [RegularExpression(@"^\s*[\p{L}]+\s*[\p{L}]+\.?\s*[\p{L}]+\.?\s*$")]
+        [Required]
         public string Author
         {
             get { return _author; }
-            set { SetProperty(ref _author, value); }
+            set
+            {
+                // Удаляем лишние пробелы
+                if (value != null)
+                {
+                    var val = Regex.Replace(value.Trim(), @"\s+", " ");
+                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                    SetProperty(ref _author, textInfo.ToTitleCase(val.Replace(" .", ".")));
+                }
+            }
         }
 
         private string _bookTitle;
+        [StringLength(350)]
+        [Required]
         public string BookTitle
         {
             get { return _bookTitle; }
@@ -28,11 +50,20 @@ namespace BookStorage.ViewModels.Dialogs
             set { SetProperty(ref _theme, value); }
         }
 
-        private int _yearOfPublishing;
-        public int YearOfPublishing
+        private string _yearOfPublishing = "0";
+        /// <summary>
+        /// Проверяет находится ли значение между 0 и текущим годом.
+        /// </summary>
+        [DateBetwenZeroAndNowYear]
+        [Required]
+        public string YearOfPublishing
         {
             get { return _yearOfPublishing; }
-            set { SetProperty(ref _yearOfPublishing, value); }
+            set 
+            {
+                if (value != null)
+                    SetProperty(ref _yearOfPublishing, value);
+            }
         }
 
 
@@ -42,7 +73,7 @@ namespace BookStorage.ViewModels.Dialogs
             Author = parameters.GetValue<string>(nameof(Author));
             BookTitle = parameters.GetValue<string>(nameof(BookTitle));
             Theme = parameters.GetValue<BookThemes>(nameof(Theme));
-            YearOfPublishing = parameters.GetValue<int>(nameof(YearOfPublishing));
+            YearOfPublishing = parameters.GetValue<string>(nameof(YearOfPublishing));
         }
 
         protected override void CloseDialog(string parameter)
@@ -64,7 +95,19 @@ namespace BookStorage.ViewModels.Dialogs
             else if (parameter?.ToLower() == "false")
                 result = ButtonResult.Cancel;
 
-            RaiseRequestClose(new DialogResult(result, parametrs));
+            StartValidation();
+
+            if (IsAllValid())
+                RaiseRequestClose(new DialogResult(result, parametrs));
+        }
+
+        private void StartValidation()
+        {
+            IsValidationRequired = true;
+
+            RaisePropertyChanged(nameof(Author));
+            RaisePropertyChanged(nameof(BookTitle));
+            RaisePropertyChanged(nameof(YearOfPublishing));
         }
     }
 }

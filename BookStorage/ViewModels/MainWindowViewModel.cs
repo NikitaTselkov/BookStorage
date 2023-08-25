@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using BookStorage.Models;
+using Core.Enums;
 using DataBaseAccess.Repository;
 using Models;
 using Prism.Commands;
@@ -72,7 +73,7 @@ namespace BookStorage.ViewModels
 
         private void ExecuteAddBook()
         {
-            var message = "Add book";
+            var message = TranslationSource.Instance["AddBook"];
 
             _dialogService.ShowDialog(DialogsNames.UpsertDialog, new DialogParameters($"Message={message}"), r =>
             {
@@ -92,7 +93,7 @@ namespace BookStorage.ViewModels
             {
                 var currentBook = _bookRepository.Get(g => g.Id == book.Id);
 
-                var message = "Edit book";
+                var message = TranslationSource.Instance["EditBook"];
                 var parametrs = new DialogParameters
                 {
                     { "Message", message },

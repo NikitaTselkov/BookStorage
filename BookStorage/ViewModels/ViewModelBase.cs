@@ -13,6 +13,8 @@ namespace BookStorage.ViewModels
 {
     public abstract class ViewModelBase : BindableBase, IDataErrorInfo
     {
+        public bool IsValidationRequired = false;
+
         public virtual string this[string columnName]
         {
             get
@@ -28,7 +30,7 @@ namespace BookStorage.ViewModels
                 };
 
                 var isValid = Validator.TryValidateProperty(property.GetValue(this), validationContext, validationResults);
-                if (isValid)
+                if (isValid || !IsValidationRequired)
                 {
                     return null;
                 }

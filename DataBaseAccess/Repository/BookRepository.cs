@@ -25,6 +25,7 @@ namespace DataBaseAccess.Repository
         public void Update(Book product)
         {
             _dbContext.Update(product);
+            _dbContext.SaveChanges();
             OnBooksChanged?.Invoke();
         }
     }

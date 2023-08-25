@@ -28,6 +28,14 @@
                 <DataGridTextColumn MinWidth="50" Width="*" Header="{ex:Localization YearOfPublishing}" Binding="{Binding YearOfPublishing}" />
             </DataGrid.Columns>
 
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add" />
+                    <MenuItem Header="Edit" />
+                    <MenuItem Header="Delete" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
         </DataGrid>
 
         <ComboBox

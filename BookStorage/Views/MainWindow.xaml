@@ -30,9 +30,9 @@
 
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Add" />
-                    <MenuItem Header="Edit" />
-                    <MenuItem Header="Delete" />
+                    <MenuItem Header="Add" Command="{Binding AddBook}" />
+                    <MenuItem Header="Edit" Command="{Binding EditBook}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}, Mode=FindAncestor}, Path=PlacementTarget.SelectedItem}" />
+                    <MenuItem Header="Delete" Command="{Binding DeleteBook}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}, Mode=FindAncestor}, Path=PlacementTarget.SelectedItem}" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
 

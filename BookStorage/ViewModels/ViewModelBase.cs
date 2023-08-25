@@ -11,7 +11,7 @@ using Core.Enums;
 
 namespace BookStorage.ViewModels
 {
-    public class ViewModelBase : BindableBase, IDataErrorInfo
+    public abstract class ViewModelBase : BindableBase, IDataErrorInfo
     {
         public virtual string this[string columnName]
         {

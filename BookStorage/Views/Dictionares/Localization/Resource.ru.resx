@@ -120,6 +120,12 @@
   <data name="Author" xml:space="preserve">
     <value>Автор</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Да</value>
+  </data>
   <data name="Theme" xml:space="preserve">
     <value>Тема</value>
   </data>

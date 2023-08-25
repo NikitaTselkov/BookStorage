@@ -1,4 +1,6 @@
-﻿using BookStorage.Views;
+﻿using BookStorage.ViewModels.Dialogs;
+using BookStorage.Views;
+using BookStorage.Views.Dialogs;
 using DataBaseAccess.Repository;
 using Prism.Ioc;
 using System.Windows;
@@ -18,6 +20,8 @@ namespace BookStorage
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IBookRepository, BookRepository>();
+            containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
+            containerRegistry.RegisterDialog<UpsertDialog, UpsertDialogViewModel>();
         }
     }
 }

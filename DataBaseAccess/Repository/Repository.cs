@@ -29,7 +29,7 @@ namespace DataBaseAccess.Repository
         public IEnumerable<T> GetAll()
         {
             IQueryable<T> query = dbSet;
-            return query.ToList();
+            return query;
         }
 
         public void Remove(T entity)

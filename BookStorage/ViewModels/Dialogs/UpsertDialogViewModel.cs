@@ -70,6 +70,8 @@ namespace BookStorage.ViewModels.Dialogs
             ButtonResult result;
             if (parameter?.ToLower() == "true")
             {
+                StartValidation();
+
                 IDialogParameters parametrs = new DialogParameters
                 {
                     { "Author", Author },
@@ -78,8 +80,6 @@ namespace BookStorage.ViewModels.Dialogs
                     { "YearOfPublishing", YearOfPublishing }
                 };
                 result = ButtonResult.OK;
-
-                StartValidation();
 
                 if (IsAllValid())
                     RaiseRequestClose(new DialogResult(result, parametrs));

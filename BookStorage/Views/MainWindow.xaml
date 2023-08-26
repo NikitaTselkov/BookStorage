@@ -5,7 +5,8 @@
         xmlns:core="clr-namespace:Core.Enums;assembly=Core"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525">
+        Title="{Binding Title}" Height="350" Width="600"
+        MinHeight="350" MinWidth="600" Style="{StaticResource WindowStyle}">
 
     <Grid>
 
@@ -22,10 +23,10 @@
             Margin="10">
 
             <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="150" Width="*" Header="{ex:Localization Author}" Binding="{Binding Author}" />
-                <DataGridTextColumn MinWidth="150" Width="*" Header="{ex:Localization Title}" Binding="{Binding Title}" />
-                <DataGridTextColumn MinWidth="90" Width="*" Header="{ex:Localization Theme}" Binding="{Binding Theme}" />
-                <DataGridTextColumn MinWidth="50" Width="*" Header="{ex:Localization YearOfPublishing}" Binding="{Binding YearOfPublishing}" />
+                <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Author}" Binding="{Binding Author}" />
+                <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Title}" Binding="{Binding Title}" />
+                <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Theme}" Binding="{Binding Theme}" />
+                <DataGridTextColumn MinWidth="150" Width="*" Header="{ex:Localization YearOfPublishing}" Binding="{Binding YearOfPublishing}" />
             </DataGrid.Columns>
 
             <DataGrid.ContextMenu>
@@ -46,8 +47,8 @@
             SelectedValue="{Binding CurrentLanguage}"
             IsReadOnly="True"
             ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type core:Languages}}}">
-            
+
         </ComboBox>
-        
+
     </Grid>
 </Window>

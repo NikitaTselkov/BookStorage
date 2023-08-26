@@ -1,6 +1,5 @@
 ﻿using Core.Enums;
 using Prism.Services.Dialogs;
-using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Core.Attributes;

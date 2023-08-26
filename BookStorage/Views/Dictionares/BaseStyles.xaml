@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:ex="clr-namespace:Core.Extensions;assembly=Core">
 
     <Style TargetType="Border">
         <Setter Property="CornerRadius" Value="5" />
@@ -12,8 +14,11 @@
                     <Grid>
                         <Border BorderBrush="{StaticResource TextBox.Error.BorderBrush}" BorderThickness="1" IsHitTestVisible="False" x:Name="errorBorder"/>
                         <AdornedElementPlaceholder x:Name="placeholder" />
-                        <Popup AllowsTransparency="True" HorizontalAlignment="Right" HorizontalOffset="0" VerticalOffset="0" PopupAnimation="Scroll" Placement="Top" 
+                        <Popup AllowsTransparency="True" HorizontalAlignment="Right" HorizontalOffset="0" VerticalOffset="-1" PopupAnimation="Scroll" Placement="Top" 
                                    PlacementTarget="{Binding ElementName=errorBorder}" IsOpen="{Binding ElementName=placeholder, Path=AdornedElement.IsFocused, Mode=OneWay}">
+                            <i:Interaction.Behaviors>
+                                <ex:AutoRepositionPopupBehavior />
+                            </i:Interaction.Behaviors>
                             <Border Background="{StaticResource TextBox.Error.Background}" Padding="4">
                                 <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource TextBox.Error.Foreground}" FontWeight="Bold" Margin="2,0,0,0"
                                                    Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)/ErrorContent, Mode=OneWay}" />

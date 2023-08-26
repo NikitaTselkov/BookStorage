@@ -1,4 +1,4 @@
-﻿using BookStorage.Models;
+﻿using Core;
 using Core.Enums;
 using DataBaseAccess.Repository;
 using Models;
@@ -25,6 +25,7 @@ namespace BookStorage.ViewModels
             {
                 SetProperty(ref _currentLanguage, value);
                 SetLanguage(_currentLanguage);
+                UpdateBooks();
             }
         }
 
@@ -120,7 +121,7 @@ namespace BookStorage.ViewModels
         {
             if (param is Book book)
             {
-                var message = $"Delete the book: {book.Title}";
+                var message = TranslationSource.Instance["DeleteBook"] + $": {book.Title}";
 
                 _dialogService.ShowDialog(DialogsNames.NotificationDialog, new DialogParameters($"Message={message}"), r =>
                 {

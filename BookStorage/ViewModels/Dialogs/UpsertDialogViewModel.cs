@@ -1,5 +1,4 @@
 ﻿using Core.Enums;
-using Models;
 using Models.ValidationAttributes;
 using Prism.Services.Dialogs;
 using System.ComponentModel.DataAnnotations;
@@ -50,7 +49,7 @@ namespace BookStorage.ViewModels.Dialogs
             set { SetProperty(ref _theme, value); }
         }
 
-        private string _yearOfPublishing = "0";
+        private string _yearOfPublishing;
         /// <summary>
         /// Проверяет находится ли значение между 0 и текущим годом.
         /// </summary>
@@ -101,9 +100,9 @@ namespace BookStorage.ViewModels.Dialogs
                 RaiseRequestClose(new DialogResult(result, parametrs));
         }
 
-        private void StartValidation()
+        internal override void StartValidation()
         {
-            IsValidationRequired = true;
+           base.StartValidation();
 
             RaisePropertyChanged(nameof(Author));
             RaisePropertyChanged(nameof(BookTitle));

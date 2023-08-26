@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows.Markup;
+﻿using System.Windows.Markup;
 
-namespace BookStorage.Views.Extensions
+namespace Core.Extensions
 {
     public class EnumBindingSourceExtension : MarkupExtension
     {
@@ -24,8 +23,6 @@ namespace BookStorage.Views.Extensions
                 }
             }
         }
-
-        public EnumBindingSourceExtension() { }
 
         public EnumBindingSourceExtension(Type enumType)
         {

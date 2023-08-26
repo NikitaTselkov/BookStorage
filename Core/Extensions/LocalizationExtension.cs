@@ -1,7 +1,6 @@
-﻿using BookStorage.Models;
-using System.Windows.Data;
+﻿using System.Windows.Data;
 
-namespace BookStorage.Views.Extensions
+namespace Core.Extensions
 {
     public class LocalizationExtension : Binding
     {

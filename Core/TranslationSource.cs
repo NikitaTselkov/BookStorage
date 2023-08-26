@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Resources;
 
-namespace BookStorage.Models
+namespace Core
 {
     public class TranslationSource : INotifyPropertyChanged
     {
@@ -13,7 +13,7 @@ namespace BookStorage.Models
             get { return instance; }
         }
 
-        private readonly ResourceManager resManager = Views.Dictionares.Localization.Resource.ResourceManager;
+        private readonly ResourceManager resManager = Localization.Resource.ResourceManager;
         private CultureInfo currentCulture = null;
 
         public string this[string key]

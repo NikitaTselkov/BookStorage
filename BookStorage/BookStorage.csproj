@@ -13,20 +13,4 @@
     <ProjectReference Include="..\DataBaseAccess\DataBaseAccess.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\Dictionares\Localization\Resource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Views\Dictionares\Localization\Resource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Dictionares\Localization\Resource.ru.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>

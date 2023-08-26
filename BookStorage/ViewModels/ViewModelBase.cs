@@ -5,15 +5,15 @@ using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
-using BookStorage.Models;
 using System.Globalization;
 using Core.Enums;
+using Core;
 
 namespace BookStorage.ViewModels
 {
     public abstract class ViewModelBase : BindableBase, IDataErrorInfo
     {
-        public bool IsValidationRequired = false;
+        private bool _isValidationRequired = false;
 
         public virtual string this[string columnName]
         {
@@ -30,7 +30,7 @@ namespace BookStorage.ViewModels
                 };
 
                 var isValid = Validator.TryValidateProperty(property.GetValue(this), validationContext, validationResults);
-                if (isValid || !IsValidationRequired)
+                if (isValid || !_isValidationRequired)
                 {
                     return null;
                 }
@@ -71,6 +71,11 @@ namespace BookStorage.ViewModels
         internal bool IsValid(string propertyName)
         {
             return string.IsNullOrEmpty(this[propertyName]);
+        }
+
+        internal virtual void StartValidation()
+        {
+            _isValidationRequired = true;
         }
     }
 }

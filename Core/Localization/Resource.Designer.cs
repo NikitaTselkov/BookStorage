@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookStorage.Views.Dictionares.Localization {
+namespace Core.Localization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BookStorage.Views.Dictionares.Localization {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BookStorage.Views.Dictionares.Localization.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Core.Localization.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -102,6 +102,15 @@ namespace BookStorage.Views.Dictionares.Localization {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete book.
+        /// </summary>
+        public static string DeleteBook {
+            get {
+                return ResourceManager.GetString("DeleteBook", resourceCulture);
             }
         }
         

@@ -253,5 +253,17 @@
                      Color="#D4AA4B" />
     <!--#endregion-->
 
+
+    <!--#region TextBox Brushes -->
+    
+    <SolidColorBrush x:Key="TextBox.Error.BorderBrush" Color="#CB2E2E"/>
+
+    <SolidColorBrush x:Key="TextBox.Error.Background" Color="#CB2E2E"/>
+    
+    <SolidColorBrush x:Key="TextBox.Error.Foreground" Color="#FFFFFF"/>
+    
     <SolidColorBrush x:Key="TextBox.Static.Background" Color="#4683DE"/>
+
+    <!--#endregion-->
+
 </ResourceDictionary>

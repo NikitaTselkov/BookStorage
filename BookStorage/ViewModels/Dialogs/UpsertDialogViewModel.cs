@@ -1,9 +1,9 @@
 ﻿using Core.Enums;
-using Core.Attributes.ValidationAttributes;
 using Prism.Services.Dialogs;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Core.Attributes;
 
 namespace BookStorage.ViewModels.Dialogs
 {
@@ -16,26 +16,17 @@ namespace BookStorage.ViewModels.Dialogs
         /// Иванов Иван И.
         /// Иванов И.И.
         /// </summary>
-        [RegularExpression(@"^\s*[\p{L}]+\s*[\p{L}]+\.?\s*[\p{L}]+\.?\s*$")]
-        [Required]
+        [RegularExpressionLocalize(@"^\s*[\p{L}]+\s*[\p{L}]+\.?\s*[\p{L}]+\.?\s*$")]
+        [RequiredLocalized]
         public string Author
         {
             get { return _author; }
-            set
-            {
-                // Удаляем лишние пробелы
-                if (value != null)
-                {
-                    var val = Regex.Replace(value.Trim(), @"\s+", " ");
-                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                    SetProperty(ref _author, textInfo.ToTitleCase(val.Replace(" .", ".")));
-                }
-            }
+            set { SetProperty(ref _author, value); }
         }
-
+        
         private string _bookTitle;
-        [StringLength(350)]
-        [Required]
+        [StringLengthLocalize(350)]
+        [RequiredLocalized]
         public string BookTitle
         {
             get { return _bookTitle; }
@@ -53,8 +44,8 @@ namespace BookStorage.ViewModels.Dialogs
         /// <summary>
         /// Проверяет находится ли значение между 0 и текущим годом.
         /// </summary>
-        [DateBetwenZeroAndNowYear]
-        [Required]
+        [DateBetwenZeroAndNowYearAttributeLocalize]
+        [RequiredLocalized]
         public string YearOfPublishing
         {
             get { return _yearOfPublishing; }
@@ -77,12 +68,10 @@ namespace BookStorage.ViewModels.Dialogs
 
         protected override void CloseDialog(string parameter)
         {
-            ButtonResult result = ButtonResult.None;
-            IDialogParameters parametrs = null;
-
+            ButtonResult result;
             if (parameter?.ToLower() == "true")
             {
-                parametrs = new DialogParameters
+                IDialogParameters parametrs = new DialogParameters
                 {
                     { "Author", Author },
                     { "BookTitle", BookTitle },
@@ -90,19 +79,30 @@ namespace BookStorage.ViewModels.Dialogs
                     { "YearOfPublishing", YearOfPublishing }
                 };
                 result = ButtonResult.OK;
+
+                StartValidation();
+
+                if (IsAllValid())
+                    RaiseRequestClose(new DialogResult(result, parametrs));
             }
             else if (parameter?.ToLower() == "false")
+            {
                 result = ButtonResult.Cancel;
-
-            StartValidation();
-
-            if (IsAllValid())
-                RaiseRequestClose(new DialogResult(result, parametrs));
+                RaiseRequestClose(new DialogResult(result));
+            }
         }
 
         internal override void StartValidation()
         {
            base.StartValidation();
+
+            // Удаляем лишние пробелы
+            if (Author != null)
+            {
+                var val = Regex.Replace(Author.Trim(), @"\s+", " ");
+                TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                Author = textInfo.ToTitleCase(val.Replace(" .", "."));
+            }
 
             RaisePropertyChanged(nameof(Author));
             RaisePropertyChanged(nameof(BookTitle));

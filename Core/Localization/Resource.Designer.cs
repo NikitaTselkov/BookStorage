@@ -88,11 +88,29 @@ namespace Core.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter your full name in the format Ivanov Ivan Ivanovich or Ivanov I.I..
+        /// </summary>
+        public static string AuthorValidationErrorMessage {
+            get {
+                return ResourceManager.GetString("AuthorValidationErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Cancel.
         /// </summary>
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Value must be between 0 and {0}.
+        /// </summary>
+        public static string DateBetwenZeroAndNowYearValidationErrorMessage {
+            get {
+                return ResourceManager.GetString("DateBetwenZeroAndNowYearValidationErrorMessage", resourceCulture);
             }
         }
         
@@ -147,6 +165,24 @@ namespace Core.Localization {
         public static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Field cannot be empty.
+        /// </summary>
+        public static string RequiredValidationErrorMessage {
+            get {
+                return ResourceManager.GetString("RequiredValidationErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Length must not exceed {0} characters.
+        /// </summary>
+        public static string StringLengthValidationErrorMessage {
+            get {
+                return ResourceManager.GetString("StringLengthValidationErrorMessage", resourceCulture);
             }
         }
         

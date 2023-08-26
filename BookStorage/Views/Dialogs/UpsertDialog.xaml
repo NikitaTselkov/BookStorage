@@ -28,7 +28,7 @@
             <TextBlock FontSize="18" FontWeight="Bold" Text="{ex:Localization EnterBookDetails}" />
 
             <TextBlock Margin="0,10,0,0" Text="{ex:Localization Author}" />
-            <TextBox Text="{Binding Author, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
+            <TextBox Text="{Binding Author, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
 
             <TextBlock Margin="0,10,0,0" Text="{ex:Localization Title}" />
             <TextBox Text="{Binding BookTitle, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />

@@ -20,7 +20,19 @@ namespace Core.Extensions
                     if (fi != null)
                     {
                         var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
-                        return ((attributes.Length > 0) && (!string.IsNullOrEmpty(attributes[0].Description))) ? attributes[0].Description : value.ToString();
+
+                        string description = null;
+
+                        foreach (var attribute in attributes)
+                        {
+                            if (!string.IsNullOrEmpty(attribute.Description))
+                            {
+                                description = attribute.Description;
+                                break;
+                            }
+                        }
+
+                        return ((attributes.Length > 0) && (!string.IsNullOrEmpty(description))) ? description : value.ToString();
                     }
                 }
 

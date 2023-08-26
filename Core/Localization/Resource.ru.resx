@@ -126,8 +126,14 @@
   <data name="Author" xml:space="preserve">
     <value>Автор</value>
   </data>
+  <data name="AuthorValidationErrorMessage" xml:space="preserve">
+    <value>Введите ФИО в формате Иванов Иван Иванович или Иванов И.И.</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
+  </data>
+  <data name="DateBetwenZeroAndNowYearValidationErrorMessage" xml:space="preserve">
+    <value>Значение должно быть между 0 и {0}</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
@@ -146,6 +152,12 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Да</value>
+  </data>
+  <data name="RequiredValidationErrorMessage" xml:space="preserve">
+    <value>Поле не может быть пустым</value>
+  </data>
+  <data name="StringLengthValidationErrorMessage" xml:space="preserve">
+    <value>Длина не должна превышать {0} символов</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>Тема</value>

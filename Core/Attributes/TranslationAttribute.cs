@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Core.Attributes
 {
-    [AttributeUsage(AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
     public class TranslationAttribute : DescriptionAttribute
     {
         private readonly string _culture;

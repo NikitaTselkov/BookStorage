@@ -126,8 +126,14 @@
   <data name="Author" xml:space="preserve">
     <value>Author</value>
   </data>
+  <data name="AuthorValidationErrorMessage" xml:space="preserve">
+    <value>Enter your full name in the format Ivanov Ivan Ivanovich or Ivanov I.I.</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="DateBetwenZeroAndNowYearValidationErrorMessage" xml:space="preserve">
+    <value>Value must be between 0 and {0}</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
@@ -146,6 +152,12 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="RequiredValidationErrorMessage" xml:space="preserve">
+    <value>Field cannot be empty</value>
+  </data>
+  <data name="StringLengthValidationErrorMessage" xml:space="preserve">
+    <value>Length must not exceed {0} characters</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>Theme</value>

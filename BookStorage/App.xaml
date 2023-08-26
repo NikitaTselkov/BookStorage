@@ -8,9 +8,9 @@
 
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="/Views/Dictionares/BaseStyles.xaml" />
                 <ResourceDictionary Source="/Views/Dictionares/Icons.xaml" />
                 <ResourceDictionary Source="/Views/Dictionares/LightTheme.xaml" />
+                <ResourceDictionary Source="/Views/Dictionares/BaseStyles.xaml" />
                 <ResourceDictionary Source="/Views/Dictionares/DataGrid.xaml" />
                 <ResourceDictionary Source="/Views/Dictionares/ComboBox.xaml" />
                

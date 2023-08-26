@@ -63,8 +63,6 @@ namespace BookStorage.ViewModels
             Books = new List<Book>(_bookRepository.GetAll());
 
             _bookRepository.OnBooksChanged += UpdateBooks;
-
-            SetLanguage(Languages.en);
         }
 
         ~MainWindowViewModel()

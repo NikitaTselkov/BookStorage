@@ -1,8 +1,10 @@
 ﻿using BookStorage.ViewModels.Dialogs;
 using BookStorage.Views;
 using BookStorage.Views.Dialogs;
+using Core;
 using DataBaseAccess.Repository;
 using Prism.Ioc;
+using System.Globalization;
 using System.Windows;
 
 namespace BookStorage
@@ -14,6 +16,8 @@ namespace BookStorage
     {
         protected override Window CreateShell()
         {
+            TranslationSource.Instance.CurrentCulture = new CultureInfo("en");
+
             return Container.Resolve<MainWindow>();
         }
 

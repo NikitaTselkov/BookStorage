@@ -5,4 +5,24 @@
         <Setter Property="CornerRadius" Value="5" />
     </Style>
 
+    <Style TargetType="TextBox">
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border BorderBrush="{StaticResource TextBox.Error.BorderBrush}" BorderThickness="1" IsHitTestVisible="False" x:Name="errorBorder"/>
+                        <AdornedElementPlaceholder x:Name="placeholder" />
+                        <Popup AllowsTransparency="True" HorizontalAlignment="Right" HorizontalOffset="0" VerticalOffset="0" PopupAnimation="Scroll" Placement="Top" 
+                                   PlacementTarget="{Binding ElementName=errorBorder}" IsOpen="{Binding ElementName=placeholder, Path=AdornedElement.IsFocused, Mode=OneWay}">
+                            <Border Background="{StaticResource TextBox.Error.Background}" Padding="4">
+                                <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource TextBox.Error.Foreground}" FontWeight="Bold" Margin="2,0,0,0"
+                                                   Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)/ErrorContent, Mode=OneWay}" />
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -1,5 +1,4 @@
 ﻿using Core.Enums;
-using Models.ValidationAttributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Models.ValidationAttributes
+namespace Core.Attributes.ValidationAttributes
 {
     public class DateBetwenZeroAndNowYearAttribute : ValidationAttribute
     {

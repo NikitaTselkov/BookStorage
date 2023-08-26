@@ -1,5 +1,5 @@
 ﻿using Core.Enums;
-using Models.ValidationAttributes;
+using Core.Attributes.ValidationAttributes;
 using Prism.Services.Dialogs;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;

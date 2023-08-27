@@ -11,5 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DataBaseAccess\DataBaseAccess.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 </Project>

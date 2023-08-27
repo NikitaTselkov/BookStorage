@@ -5,6 +5,7 @@ using Core.Models;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using System.Collections.Generic;
+using Services;
 
 namespace BookStorage.ViewModels
 {
@@ -17,7 +18,7 @@ namespace BookStorage.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private BookThemes _themeOfWeek = BookThemes.Romance;
+        private BookThemes _themeOfWeek;
         public BookThemes ThemeOfWeek
         {
             get { return _themeOfWeek; }
@@ -46,6 +47,7 @@ namespace BookStorage.ViewModels
 
         private readonly IBookRepository _bookRepository;
         private readonly IDialogService _dialogService;
+        private readonly IBookService _bookService;
 
         #region Commands
 
@@ -63,12 +65,15 @@ namespace BookStorage.ViewModels
 
         #endregion
 
-        public MainWindowViewModel(IBookRepository bookRepository, IDialogService dialogService)
+        public MainWindowViewModel(IBookRepository bookRepository, IDialogService dialogService, IBookService bookService)
         {
             _bookRepository = bookRepository;
             _dialogService = dialogService;
+            _bookService = bookService;
 
             Books = new List<Book>(_bookRepository.GetAll());
+
+            ThemeOfWeek = bookService.GetThemeOfWeek();
 
             _bookRepository.OnBooksChanged += UpdateBooks;
         }

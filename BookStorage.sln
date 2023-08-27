@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseAccess", "DataBaseA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{6150DE8C-22D4-4276-9C31-348056FD8549}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{A65485FE-3064-4A6A-8D3E-437E4E8FA442}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65485FE-3064-4A6A-8D3E-437E4E8FA442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65485FE-3064-4A6A-8D3E-437E4E8FA442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65485FE-3064-4A6A-8D3E-437E4E8FA442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65485FE-3064-4A6A-8D3E-437E4E8FA442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

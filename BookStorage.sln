@@ -5,11 +5,9 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStorage", "BookStorage\BookStorage.csproj", "{FB402A3A-3610-47B9-9206-0D5B891F08BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseAccess", "DataBaseAccess\DataBaseAccess.csproj", "{1A2A6395-4561-4451-BC51-0FEBF18E297D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseAccess", "DataBaseAccess\DataBaseAccess.csproj", "{1A2A6395-4561-4451-BC51-0FEBF18E297D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{2D770CC2-CF46-462E-B479-CE81E510056E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{6150DE8C-22D4-4276-9C31-348056FD8549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{6150DE8C-22D4-4276-9C31-348056FD8549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{1A2A6395-4561-4451-BC51-0FEBF18E297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A2A6395-4561-4451-BC51-0FEBF18E297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A2A6395-4561-4451-BC51-0FEBF18E297D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D770CC2-CF46-462E-B479-CE81E510056E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D770CC2-CF46-462E-B479-CE81E510056E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D770CC2-CF46-462E-B479-CE81E510056E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D770CC2-CF46-462E-B479-CE81E510056E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6150DE8C-22D4-4276-9C31-348056FD8549}.Release|Any CPU.ActiveCfg = Release|Any CPU

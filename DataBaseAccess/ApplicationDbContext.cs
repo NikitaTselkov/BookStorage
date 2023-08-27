@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models;
+﻿using Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataBaseAccess
 {

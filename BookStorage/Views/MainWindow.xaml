@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ex="clr-namespace:Core.Extensions;assembly=Core"
         xmlns:core="clr-namespace:Core.Enums;assembly=Core"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="600"
         MinHeight="350" MinWidth="600" Style="{StaticResource WindowStyle}">
+
+    <Window.Resources>
+        <Style x:Key="themeOfWeek" TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
+            <Setter Property="Background" Value="{StaticResource DataGrid.Static.Background}" />
+            <Setter Property="Foreground" Value="{StaticResource DataGrid.Row.Static.Foreground}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+    </Window.Resources>
 
     <Grid>
 
@@ -19,9 +29,15 @@
             Grid.Row="1"
             ItemsSource="{Binding Books}" 
             AutoGenerateColumns="False"
-            IsReadOnly="True"
+            IsReadOnly="True"          
             Margin="10">
 
+            <i:Interaction.Behaviors>
+                <ex:DataGridRowStyleSelectorBehavior
+                    SelectedThemeStyle="{StaticResource themeOfWeek}"
+                    SelectedTheme="{Binding ThemeOfWeek}" />
+            </i:Interaction.Behaviors>
+            
             <DataGrid.Columns>
                 <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Author}" Binding="{Binding Author}" />
                 <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Title}" Binding="{Binding Title}" />

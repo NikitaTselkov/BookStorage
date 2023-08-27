@@ -7,6 +7,9 @@
     <SolidColorBrush x:Key="Sort.Up.Icon.Active"
                      Color="#FFFFFF" />
 
+    <Color x:Key="DataGrid.Static.Background.Color">#4683DE</Color>
+    <Color x:Key="DataGrid.AlternateRow.Static.Background.Color">#FAFAFA</Color>
+
     <SolidColorBrush x:Key="DataGrid.Header.Static.Background"
                      Color="#F7F7F7" />
 
@@ -16,8 +19,14 @@
     <SolidColorBrush x:Key="DataGrid.Static.BorderBrush"
                      Color="#4683DE" />
 
+    <SolidColorBrush x:Key="DataGrid.Static.Background"
+                     Color="{StaticResource DataGrid.Static.Background.Color}" />
+
     <SolidColorBrush x:Key="DataGrid.Row.Details.Static.BorderBrush"
                      Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Row.Static.Foreground"
+                     Color="#FAFAFA" />
 
     <SolidColorBrush x:Key="DataGrid.Header.Title.Static.Foreground"
                      Color="#828283" />
@@ -96,7 +105,7 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="DataGrid.AlternateRow.Static.Background"
-                     Color="#FAFAFA" />
+                     Color="{StaticResource DataGrid.AlternateRow.Static.Background.Color}" />
 
     <SolidColorBrush x:Key="DataGrid.Grid.HorizontalLineBrush"
                      Color="#ECECEC" />
@@ -152,7 +161,6 @@
     <SolidColorBrush x:Key="ProgressBar.Fill.InProgressBrush"
                      Color="#D4A746" />
 
-
     <!--#region ComboBox Brushes -->
     <SolidColorBrush x:Key="ComboBox.Static.Background"
                      Color="#4683DE" />
@@ -197,9 +205,7 @@
                      Color="#F7F7F7" />
 
 
-    <Color x:Key="Popup.Static.Shadow.Color">
-        #FFFFFF
-    </Color>
+    <Color x:Key="Popup.Static.Shadow.Color">#FFFFFF</Color>
 
     <SolidColorBrush x:Key="Popup.TextBox.MouseOver.BorderBrush"
                      Color="#CECECE" />

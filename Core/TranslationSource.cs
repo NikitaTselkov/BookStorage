@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
-using System.Text.RegularExpressions;
-using System.Windows.Documents;
 
 namespace Core
 {

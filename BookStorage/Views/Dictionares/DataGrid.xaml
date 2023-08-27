@@ -145,7 +145,7 @@
     </Style>
 
     <Style TargetType="{x:Type DataGridCell}">
-        <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGrid, Mode=FindAncestor}}" />
+        <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridRow, Mode=FindAncestor}}" />
         <Setter Property="Padding" Value="5 0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -212,7 +212,16 @@
                 <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DataGrid.Cell.Selected.Foreground}" />
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0 0" EndPoint="1 0">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0.6" Color="{StaticResource DataGrid.Static.Background.Color}" />
+                                <GradientStop Offset="1" Color="{StaticResource DataGrid.AlternateRow.Static.Background.Color}" />
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -1,7 +1,7 @@
 ﻿using Core;
 using Core.Enums;
 using DataBaseAccess.Repository;
-using Models;
+using Core.Models;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using System.Collections.Generic;
@@ -15,6 +15,13 @@ namespace BookStorage.ViewModels
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
+        }
+
+        private BookThemes _themeOfWeek = BookThemes.Romance;
+        public BookThemes ThemeOfWeek
+        {
+            get { return _themeOfWeek; }
+            set { SetProperty(ref _themeOfWeek, value); }
         }
 
         private Languages _currentLanguage;      

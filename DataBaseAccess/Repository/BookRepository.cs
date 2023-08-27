@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using Core.Models;
 using System.ComponentModel;
 
 namespace DataBaseAccess.Repository

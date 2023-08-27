@@ -196,6 +196,15 @@ namespace Core.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Theme of week.
+        /// </summary>
+        public static string ThemeOfWeek {
+            get {
+                return ResourceManager.GetString("ThemeOfWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Title.
         /// </summary>
         public static string Title {

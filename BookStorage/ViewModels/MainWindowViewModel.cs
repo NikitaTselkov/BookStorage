@@ -32,6 +32,7 @@ namespace BookStorage.ViewModels
             {
                 SetProperty(ref _currentLanguage, value);
                 SetLanguage(_currentLanguage);
+                RaisePropertyChanged(nameof(ThemeOfWeek));
                 UpdateBooks();
             }
         }

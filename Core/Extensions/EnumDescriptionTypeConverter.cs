@@ -5,8 +5,7 @@ namespace Core.Extensions
 {
     public class EnumDescriptionTypeConverter : EnumConverter
     {
-        public EnumDescriptionTypeConverter(Type type)
-            : base(type)
+        public EnumDescriptionTypeConverter(Type type) : base(type)
         {
         }
 

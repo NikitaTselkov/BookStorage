@@ -10,6 +10,9 @@
         MinHeight="350" MinWidth="600" Style="{StaticResource WindowStyle}">
 
     <Window.Resources>
+
+        <ex:EnumLocalizationConverter x:Key="enumLocalizationConverter" />
+
         <Style x:Key="themeOfWeek" TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
             <Setter Property="Background" Value="{StaticResource DataGrid.Static.Background}" />
             <Setter Property="Foreground" Value="{StaticResource DataGrid.Row.Static.Foreground}" />
@@ -17,6 +20,7 @@
             <Setter Property="FontSize" Value="13" />
             <Setter Property="Opacity" Value="0.8" />
         </Style>
+        
     </Window.Resources>
 
     <Grid>
@@ -25,6 +29,29 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
+
+        <DockPanel Margin="10 5 10 0">
+
+            <TextBlock 
+                HorizontalAlignment="Center"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="{StaticResource TextBox.Static.Background}">
+                
+                <Run Text="{ex:Localization ThemeOfWeek}"></Run>
+                <Run Text=":   "></Run>
+                <Run Text="{Binding ThemeOfWeek, Converter={StaticResource enumLocalizationConverter}}"></Run>
+            </TextBlock>
+
+            <ComboBox
+               HorizontalAlignment="Right"
+               MinWidth="50"
+               HorizontalContentAlignment="Center"
+               SelectedValue="{Binding CurrentLanguage}"
+               IsReadOnly="True"
+               ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type core:Languages}}}" />
+
+        </DockPanel>
 
         <DataGrid
             Grid.Row="1"
@@ -38,7 +65,7 @@
                     SelectedThemeStyle="{StaticResource themeOfWeek}"
                     SelectedTheme="{Binding ThemeOfWeek}" />
             </i:Interaction.Behaviors>
-            
+
             <DataGrid.Columns>
                 <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Author}" Binding="{Binding Author}" />
                 <DataGridTextColumn MinWidth="130" Width="*" Header="{ex:Localization Title}" Binding="{Binding Title}" />
@@ -55,17 +82,5 @@
             </DataGrid.ContextMenu>
 
         </DataGrid>
-
-        <ComboBox
-            Margin="0 5 10 0"
-            HorizontalAlignment="Right"
-            MinWidth="50"
-            HorizontalContentAlignment="Center"
-            SelectedValue="{Binding CurrentLanguage}"
-            IsReadOnly="True"
-            ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type core:Languages}}}">
-
-        </ComboBox>
-
     </Grid>
 </Window>

@@ -30,4 +30,12 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource Button.Default.Static.Background}" />
+        <Setter Property="Foreground" Value="{StaticResource Button.Default.Static.Foreground}" />
+        <Setter Property="Width" Value="75" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="IsDefault" Value="True" />
+    </Style>
+
 </ResourceDictionary>

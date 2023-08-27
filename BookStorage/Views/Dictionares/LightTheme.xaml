@@ -8,8 +8,11 @@
                      Color="#FFFFFF" />
 
     <Color x:Key="DataGrid.Static.Background.Color">#4683DE</Color>
+    
     <Color x:Key="DataGrid.AlternateRow.Static.Background.Color">#FAFAFA</Color>
 
+    <!--#region DataGrid Brushes -->
+    
     <SolidColorBrush x:Key="DataGrid.Header.Static.Background"
                      Color="#F7F7F7" />
 
@@ -128,6 +131,8 @@
     <SolidColorBrush x:Key="DataGrid.Cell.Static.NotStartedBrush"
                      Color="#4683DE" />
 
+    <!--#endregion-->
+
     <SolidColorBrush x:Key="Icon.View.Static.Fill"
                      Color="#929DE7" />
 
@@ -149,6 +154,8 @@
     <SolidColorBrush x:Key="Icon.MouseOver.Background"
                      Color="#FFFFFF" />
 
+    <!--#region ComboBox Brushes -->
+
     <SolidColorBrush x:Key="ProgressBar.Background"
                      Color="#D3D3D3" />
 
@@ -161,6 +168,8 @@
     <SolidColorBrush x:Key="ProgressBar.Fill.InProgressBrush"
                      Color="#D4A746" />
 
+    <!--#endregion-->
+    
     <!--#region ComboBox Brushes -->
     <SolidColorBrush x:Key="ComboBox.Static.Background"
                      Color="#4683DE" />
@@ -201,9 +210,10 @@
     <SolidColorBrush x:Key="ComboBoxItem.MouseOver.Background"
                      Color="#ECECEC" />
 
+    <!--#region Popup Brushes -->
+
     <SolidColorBrush x:Key="Popup.Static.Background"
                      Color="#F7F7F7" />
-
 
     <Color x:Key="Popup.Static.Shadow.Color">#FFFFFF</Color>
 
@@ -215,6 +225,10 @@
 
     <SolidColorBrush x:Key="Popup.TextBox.Parent.Panel.Static.Background"
                      Color="#F7F7F7" />
+
+    <!--#endregion-->
+
+    <!--#region Popup Brushes -->
 
     <SolidColorBrush x:Key="CheckBox.Glyph.Checked.Fill"
                      Color="#FFFFFF" />
@@ -231,11 +245,15 @@
     <SolidColorBrush x:Key="CheckBox.Checked.BorderBrush"
                      Color="#4683DE" />
 
+    <!--#endregion-->
+
+    <!--#region Button Brushes -->
+    
     <SolidColorBrush x:Key="Button.Default.MouseOver.OpacityMask"
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="Button.Default.Static.Background"
-                     Color="#FFFFFF" />
+                     Color="#4683DE" />
 
     <SolidColorBrush x:Key="Button.Primary.Static.Background"
                      Color="#4683DE" />

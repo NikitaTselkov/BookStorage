@@ -1,6 +1,8 @@
 ﻿using Core.Enums;
+using Core.Models;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Core.Extensions
 {
@@ -25,16 +27,30 @@ namespace Core.Extensions
         {
             AssociatedObject.Loaded -= DataGrid_Loaded;
         }
+    }
 
-        private IEnumerable<DataGridRow> GetDataGridRows(DataGrid grid)
+    public class SelectedThemeRowStyleSelector : StyleSelector
+    {
+        private Style _selectedThemeStyle { get; init; }
+        private BookThemes _selectedTheme { get; init; }
+
+        public SelectedThemeRowStyleSelector(Style selectedThemeStyle, BookThemes selectedTheme)
         {
-            var itemsSource = grid.ItemsSource;
-            if (null == itemsSource) yield return null;
-            foreach (var item in itemsSource)
+            _selectedThemeStyle = selectedThemeStyle;
+            _selectedTheme = selectedTheme;
+        }
+
+        public override Style SelectStyle(object item, DependencyObject container)
+        {
+            if (item is Book book)
             {
-                var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-                if (null != row) yield return row;
+                if (book.Theme == _selectedTheme)
+                {
+                    return _selectedThemeStyle;
+                }
             }
+
+            return null;
         }
     }
 }

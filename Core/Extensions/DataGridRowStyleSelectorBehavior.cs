@@ -1,5 +1,4 @@
 ﻿using Core.Enums;
-using Core.Models;
 using Microsoft.Xaml.Behaviors;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,16 +17,7 @@ namespace Core.Extensions
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var row in GetDataGridRows(AssociatedObject))
-            {
-                if (row != null && row.Item is Book book)
-                {
-                    if (book.Theme == SelectedTheme)
-                    {
-                        row.Style = SelectedThemeStyle;
-                    }
-                }
-            }
+            AssociatedObject.RowStyleSelector = new SelectedThemeRowStyleSelector(SelectedThemeStyle, SelectedTheme);
         }
     }
 }

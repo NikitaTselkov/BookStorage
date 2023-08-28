@@ -4,8 +4,11 @@ using DataBaseAccess.Repository;
 using Core.Models;
 using Prism.Commands;
 using Prism.Services.Dialogs;
+using System.Collections.Generic;
 using Services;
 using System.ComponentModel;
+using System;
+using Prism.Common;
 using System.Collections.ObjectModel;
 
 namespace BookStorage.ViewModels
@@ -39,12 +42,7 @@ namespace BookStorage.ViewModels
             }
         }
 
-        private ObservableCollection<Book> _books;
-        public ObservableCollection<Book> Books
-        {
-            get { return _books; }
-            set { SetProperty(ref _books, value); }
-        }
+        public ObservableCollection<Book> Books { get; set; }
 
         private readonly IBookRepository _bookRepository;
         private readonly IDialogService _dialogService;

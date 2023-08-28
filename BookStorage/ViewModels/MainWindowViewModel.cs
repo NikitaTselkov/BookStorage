@@ -6,10 +6,6 @@ using Prism.Commands;
 using Prism.Services.Dialogs;
 using System.Collections.Generic;
 using Services;
-using System.ComponentModel;
-using System;
-using Prism.Common;
-using System.Collections.ObjectModel;
 
 namespace BookStorage.ViewModels
 {
@@ -38,14 +34,20 @@ namespace BookStorage.ViewModels
                 SetProperty(ref _currentLanguage, value);
                 SetLanguage(_currentLanguage);
                 RaisePropertyChanged(nameof(ThemeOfWeek));
-                Books = new ObservableCollection<Book>(_bookRepository.GetAll());
+                UpdateBooks();
             }
         }
 
-        public ObservableCollection<Book> Books { get; set; }
+        private List<Book> _books;
+        public List<Book> Books
+        {
+            get { return _books; }
+            set { SetProperty(ref _books, value); }
+        }
 
         private readonly IBookRepository _bookRepository;
         private readonly IDialogService _dialogService;
+        private readonly IBookThemeService _bookThemeService;
 
         #region Commands
 
@@ -67,17 +69,18 @@ namespace BookStorage.ViewModels
         {
             _bookRepository = bookRepository;
             _dialogService = dialogService;
+            _bookThemeService = bookThemeService;
 
-            Books = new ObservableCollection<Book>(_bookRepository.GetAll());
+            Books = new List<Book>(_bookRepository.GetAll());
 
             ThemeOfWeek = bookThemeService.GetThemeOfWeek();
 
-            _bookRepository.OnCollectionChanged += UpdateBooks;
+            _bookRepository.OnBooksChanged += UpdateBooks;
         }
 
         ~MainWindowViewModel()
         {
-            _bookRepository.OnCollectionChanged -= UpdateBooks;
+            _bookRepository.OnBooksChanged -= UpdateBooks;
         }
 
         private void ExecuteAddBook()
@@ -142,14 +145,11 @@ namespace BookStorage.ViewModels
             }
         }
 
-        private void UpdateBooks(object sender, CollectionChangeEventArgs e)
+        private void UpdateBooks()
         {
-            if (e.Action == CollectionChangeAction.Add)
-                Books.Add((Book)e.Element);
-
-            else if(e.Action == CollectionChangeAction.Remove)
-                Books.Remove((Book)e.Element);
+            Books = new List<Book>(_bookRepository.GetAll());
         }
+
 
         private static Book GetBookFromCallBack(IDialogParameters parameters)
         {

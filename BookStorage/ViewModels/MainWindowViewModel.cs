@@ -47,7 +47,7 @@ namespace BookStorage.ViewModels
 
         private readonly IBookRepository _bookRepository;
         private readonly IDialogService _dialogService;
-        private readonly IBookService _bookService;
+        private readonly IBookThemeService _bookThemeService;
 
         #region Commands
 
@@ -65,15 +65,15 @@ namespace BookStorage.ViewModels
 
         #endregion
 
-        public MainWindowViewModel(IBookRepository bookRepository, IDialogService dialogService, IBookService bookService)
+        public MainWindowViewModel(IBookRepository bookRepository, IDialogService dialogService, IBookThemeService bookThemeService)
         {
             _bookRepository = bookRepository;
             _dialogService = dialogService;
-            _bookService = bookService;
+            _bookThemeService = bookThemeService;
 
             Books = new List<Book>(_bookRepository.GetAll());
 
-            ThemeOfWeek = bookService.GetThemeOfWeek();
+            ThemeOfWeek = bookThemeService.GetThemeOfWeek();
 
             _bookRepository.OnBooksChanged += UpdateBooks;
         }

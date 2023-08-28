@@ -3,6 +3,8 @@ using BookStorage.Views;
 using BookStorage.Views.Dialogs;
 using Core;
 using DataBaseAccess.Repository;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
 using Services;
 using System.Globalization;
@@ -25,7 +27,9 @@ namespace BookStorage
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IBookRepository, BookRepository>();
-            containerRegistry.RegisterSingleton<IBookService, BookService>();
+            containerRegistry.RegisterSingleton<IBookThemeService, BookThemeService>();
+
+            containerRegistry.RegisterSingleton<ISettingsService, AppSettingsService>();
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>();
             containerRegistry.RegisterDialog<UpsertDialog, UpsertDialogViewModel>();

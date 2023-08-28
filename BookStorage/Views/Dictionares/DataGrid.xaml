@@ -13,6 +13,7 @@
         <Setter Property="RowDetailsVisibilityMode" Value="Collapsed"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
         <Setter Property="SelectionMode" Value="Single"/>
         <Setter Property="SelectionUnit" Value="FullRow" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>

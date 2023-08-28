@@ -2,7 +2,7 @@
 
 namespace Services
 {
-    public interface IBookService
+    public interface IBookThemeService
     {
         public BookThemes GetThemeOfWeek();
     }

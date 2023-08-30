@@ -57,7 +57,8 @@
             Grid.Row="1"
             ItemsSource="{Binding Books}" 
             AutoGenerateColumns="False"
-            IsReadOnly="True"          
+            IsReadOnly="True"
+            ex:LocalizationRefreshBinding.IsNeedUpdateBindings="True"
             Margin="10">
 
             <i:Interaction.Behaviors>

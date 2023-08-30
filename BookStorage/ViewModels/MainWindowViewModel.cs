@@ -34,7 +34,6 @@ namespace BookStorage.ViewModels
                 SetProperty(ref _currentLanguage, value);
                 SetLanguage(_currentLanguage);
                 RaisePropertyChanged(nameof(ThemeOfWeek));
-                UpdateBooks();
             }
         }
 
@@ -47,7 +46,6 @@ namespace BookStorage.ViewModels
 
         private readonly IBookRepository _bookRepository;
         private readonly IDialogService _dialogService;
-        private readonly IBookThemeService _bookThemeService;
 
         #region Commands
 
@@ -69,7 +67,6 @@ namespace BookStorage.ViewModels
         {
             _bookRepository = bookRepository;
             _dialogService = dialogService;
-            _bookThemeService = bookThemeService;
 
             Books = new List<Book>(_bookRepository.GetAll());
 
